@@ -11,16 +11,5 @@ eureka:
       leaseRenewalIntervalInSeconds: 5
       leaseExpirationDurationInSeconds: 5
 
-      
-zuul:
-  routes:
-    echo-service:
-      path: /echo/**
-      serviceId: echo-service #The name of the service to make the load balancing
-      
-ribbon: # Eureka interface with Ribbon must be disabled so Ribbon will use the list of servers indicated below
-  eureka:
-    enabled: false
-echo-service:
-  ribbon:
-    listOfServers: http://localhost:8091
+zuul.routes.echo-service.path=/echo/**
+zuul.routes.echo-service.url=http://localhost:8091/
