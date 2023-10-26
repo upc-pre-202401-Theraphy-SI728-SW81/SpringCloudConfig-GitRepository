@@ -1,12 +1,6 @@
 server.port: 8080
 server.error.include-message: always
 
-
-logging:
-level:
-root: INFO
-se.magnus: DEBUG
-
 spring:
   cloud:
     gateway:
