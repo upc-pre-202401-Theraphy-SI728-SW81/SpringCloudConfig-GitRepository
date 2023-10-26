@@ -2,9 +2,12 @@ server:
   port: 8080 #the default port used for zuul service
   
 zuul:
-  routes:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+    routes:
       echo-service:
         path: /echo/** #path that will be intercepted
-        url: http://laptop-rj9q8eje:8091
-    
+        url: http://localhost:8091
         
