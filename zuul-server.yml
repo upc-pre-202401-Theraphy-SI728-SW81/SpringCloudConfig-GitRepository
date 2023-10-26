@@ -9,4 +9,4 @@ zuul:
     routes:
       echo-service:
         path: /echo/**
-        url: http://localhost:7000
+        url: http://laptop-rj9q8eje:7000
