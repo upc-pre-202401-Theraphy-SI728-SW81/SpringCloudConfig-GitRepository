@@ -9,7 +9,7 @@ spring:
           enabled: true
       routes:
         - id: security-route
-          uri: ${SECURITY_ROUTE_URI:http://laptop-rj9q8eje:7008}
+          uri: lb://security-service
           predicates:
             - Path=/security/**
           filters:
