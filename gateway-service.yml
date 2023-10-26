@@ -16,7 +16,7 @@ spring:
             - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: profile-route
-          uri: ${PROFILE_ROUTE_URI:http://laptop-rj9q8eje:7009}
+          uri: lb://profile-service
           predicates:
             - Path=/profile/**
           filters:
