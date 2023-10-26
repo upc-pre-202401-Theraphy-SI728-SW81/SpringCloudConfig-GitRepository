@@ -1,8 +1,10 @@
 server:
-  port: ${port:8091}
+  port: ${PORT:${SERVER_PORT:0}}
 
 eureka:
   client:
+    fetch-registry: true
+    register-with-eureka: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
       initialInstanceInfoReplicationIntervalSeconds: 5
@@ -10,3 +12,7 @@ eureka:
       instance:
       leaseRenewalIntervalInSeconds: 5
       leaseExpirationDurationInSeconds: 5
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
