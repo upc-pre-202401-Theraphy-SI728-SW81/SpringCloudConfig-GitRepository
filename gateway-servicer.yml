@@ -1,0 +1,62 @@
+server.port: 8080
+server.error.include-message: always
+
+
+logging:
+level:
+root: INFO
+se.magnus: DEBUG
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: security-route
+          uri: ${SECURITY_ROUTE_URI:http://laptop-rj9q8eje:7008}
+          predicates:
+            - Path=/security/**
+          filters:
+            - PrefixPath=/api/v1
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: profile-route
+          uri: ${PROFILE_ROUTE_URI:http://laptop-rj9q8eje:7009}
+          predicates:
+            - Path=/profile/**
+          filters:
+            - PrefixPath=/api/v1
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: echo-route
+          uri: lb://echo-service
+          predicates:
+            - Path=/echo/**
+          filters:
+            - PrefixPath=/
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      initialInstanceInfoReplicationIntervalSeconds: 5
+      registryFetchIntervalSeconds: 5
+      instance:
+      leaseRenewalIntervalInSeconds: 5
+      leaseExpirationDurationInSeconds: 5
+  instance:
+    hostname: localhost
+
