@@ -3,9 +3,6 @@ server:
   
 zuul:
   ignoredServices: '*'
-  host:
-    connect-timeout-millis: 20000
-    socket-timeout-millis: 20000
     routes:
       echo-service:
         path: /echo/** #path that will be intercepted
