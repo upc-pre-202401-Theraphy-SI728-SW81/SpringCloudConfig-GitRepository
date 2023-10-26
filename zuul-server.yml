@@ -2,11 +2,14 @@ server:
   port: 8080 #the default port used for zuul service
   
 zuul:
-  ignoredServices: '*'
-  host:
-    connect-timeout-millis: 20000
-    socket-timeout-millis: 20000
-    routes:
-      echo-service:
-        path: /echo/** #path that will be intercepted
-        url: http://localhost:8091
+  routes:
+    echo-service:
+      path: /echo/**
+      serviceId: echo-service #The name of the service to make the load balancing
+      
+ribbon: # Eureka interface with Ribbon must be disabled so Ribbon will use the list of servers indicated below
+  eureka:
+    enabled: false
+echo-service:
+  ribbon:
+    listOfServers: http://localhost:8091
