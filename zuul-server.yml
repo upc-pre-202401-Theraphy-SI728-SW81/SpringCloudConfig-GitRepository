@@ -9,4 +9,4 @@ zuul:
     routes:
       echo-service:
         path: /echo/** #path that will be intercepted
-        uri: ${ECHO_ROUTE_URI:http://laptop-rj9q8eje:8091}
+        url: http://localhost:8091
