@@ -1,5 +1,5 @@
-server:
-  port: 8080 #the default port used for zuul service
-
 zuul.routes.echo-service.path=/echo/**
 zuul.routes.echo-service.url=http://localhost:8091/
+
+server:
+  port: 8080 #the default port used for zuul service
