@@ -5,6 +5,6 @@ zuul:
   routes:
       echo-service:
         path: /echo/** #path that will be intercepted
-        url: http://laptop-rj9q8eje:7000 
+        url: http://laptop-rj9q8eje:8091
     
         
