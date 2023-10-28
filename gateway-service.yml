@@ -29,6 +29,13 @@ spring:
           filters:
             - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: health-expertise-route
+          uri: lb://health-expertise-service
+          predicates:
+            - Path=/health-expertise/**
+          filters:
+            - PrefixPath=/api/v1
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: echo-route
           uri: lb://echo-service
           predicates:
