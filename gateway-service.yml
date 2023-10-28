@@ -23,7 +23,7 @@ spring:
             - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: consultations-route
-          uri: lb://consultation-service
+          uri: lb://consultations-service
           predicates:
             - Path=/consultations/**
           filters:
