@@ -36,6 +36,13 @@ spring:
           filters:
             - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+         - id: social-route
+          uri: lb://social-service
+          predicates:
+            - Path=/social/**
+          filters:
+            - PrefixPath=/api/v1
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: echo-route
           uri: lb://echo-service
           predicates:
