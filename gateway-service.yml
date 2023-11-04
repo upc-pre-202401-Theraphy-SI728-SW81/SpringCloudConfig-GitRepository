@@ -50,6 +50,13 @@ spring:
           filters:
             - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: payment-route
+          uri: lb://payment-service
+          predicates:
+            - Path=/payments/**
+          filters:
+            - PrefixPath=/api/v1
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: echo-route
           uri: lb://echo-service
           predicates:
