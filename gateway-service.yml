@@ -55,7 +55,6 @@ spring:
           predicates:
             - Path=/echo/**
           filters:
-            - PrefixPath=/
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
 management:
   endpoints:
