@@ -11,30 +11,26 @@ spring:
         - id: security-route
           uri: lb://security-service
           predicates:
-            - Path=/security/**
+            - Path=/api/v1/security/**
           filters:
-            - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: profile-route
           uri: lb://profile-service
           predicates:
-            - Path=/profile/**
+            - Path=/api/v1/profile/**
           filters:
-            - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: consultations-route
           uri: lb://consultations-service
           predicates:
-            - Path=/consultations/**
+            - Path=/api/v1/consultations/**
           filters:
-            - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: health-expertise-route
           uri: lb://health-expertise-service
           predicates:
-            - Path=/health-expertise/**
+            - Path=/api/v1/health-expertise/**
           filters:
-            - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: social-route
           uri: lb://social-service
@@ -45,9 +41,8 @@ spring:
         - id: therapy-route
           uri: lb://therapy-service
           predicates:
-            - Path=/therapy/**
+            - Path=/api/v1/therapy/**
           filters:
-            - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: payment-route
           uri: lb://payment-service
