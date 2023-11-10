@@ -23,6 +23,17 @@ spring:
         refresh-token:
           expiration: 604800000
 
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api/v1/security/v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /api/v1/security/doc/swagger-ui.html
+
+  packages-to-scan: com.digitalholics
+  paths-to-match: /api/v1/security/**
+  
 eureka:
   client:
     fetch-registry: true
