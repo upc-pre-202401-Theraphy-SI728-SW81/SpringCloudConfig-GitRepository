@@ -4,13 +4,13 @@ server:
 springdoc:
   api-docs:
     enabled: true
-    path: /echo/v3/api-docs
+    path: /api/v1/echo/v3/api-docs
   swagger-ui:
     enabled: true
-    path: /echo/doc/swagger-ui.html
+    path: /api/v1/echo/doc/swagger-ui.html
 
   packages-to-scan: com.digitalholics
-  paths-to-match: /echo/**
+  paths-to-match: /api/v1/echo/**
   
 eureka:
   client:
