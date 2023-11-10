@@ -42,7 +42,6 @@ spring:
             - Path=/social/**
           filters:
             - PrefixPath=/api/v1
-            - RewritePath=/social/(?<remaining>.*), /$\{remaining}
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: therapy-route
           uri: lb://therapy-service
