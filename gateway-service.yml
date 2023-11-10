@@ -39,9 +39,9 @@ spring:
         - id: social-route
           uri: lb://social-service
           predicates:
-            - Path=/api/v1/social/**
+            - Path=/social/**
           filters:
-            - RewritePath=/api/v1/social/v3/api-docs/(?<remaining>.*), /v3/api-docs/$\{remaining}
+            - PrefixPath=/api/v1
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
         - id: therapy-route
           uri: lb://therapy-service
