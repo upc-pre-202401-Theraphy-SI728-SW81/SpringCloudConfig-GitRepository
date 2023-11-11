@@ -30,6 +30,7 @@ springdoc:
   swagger-ui:
     enabled: true
     path: /api/v1/security/doc/swagger-ui.html
+    displayOperationId: true
 
   packages-to-scan: com.digitalholics
   paths-to-match: /api/v1/security/auth/**
