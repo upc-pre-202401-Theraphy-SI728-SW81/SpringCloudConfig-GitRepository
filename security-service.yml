@@ -32,7 +32,7 @@ springdoc:
     path: /api/v1/security/doc/swagger-ui.html
 
   packages-to-scan: com.digitalholics
-  paths-to-match: /api/v1/security/**
+  paths-to-match: /api/v1/security/auth/**
   
 eureka:
   client:
