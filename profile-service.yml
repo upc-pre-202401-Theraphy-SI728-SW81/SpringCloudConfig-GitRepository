@@ -3,7 +3,7 @@ server.error.include-message: always
 
 custom:
   health:
-    status: OUT_OF_SERVICE
+    status: UP
     
 spring:
   datasource:
