@@ -6,10 +6,11 @@ eureka:
     hostname: localhost
   client:
     registerWithEureka: false
-    fetchRegistry: true
+    fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     waitTimeInMsWhenSyncEmpty: 0
     response-cache-update-interval-ms: 5000
+    eviction-interval-timer-in-ms: 10000 # Ajusta según tus necesidades
   
