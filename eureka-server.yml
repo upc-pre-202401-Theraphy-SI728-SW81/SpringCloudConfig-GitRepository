@@ -3,7 +3,7 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: localhost1
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -21,7 +21,7 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: localhost2
   client:
     registerWithEureka: true
     fetchRegistry: true
