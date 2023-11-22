@@ -1,0 +1,82 @@
+server.port: 8080
+server.error.include-message: always
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: security-route
+          uri: lb://security-service
+          predicates:
+            - Path=/api/v1/security/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: profile-route
+          uri: lb://profile-service
+          predicates:
+            - Path=/api/v1/profile/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: consultations-route
+          uri: lb://consultations-service
+          predicates:
+            - Path=/api/v1/consultations/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: health-expertise-route
+          uri: lb://health-expertise-service
+          predicates:
+            - Path=/api/v1/health-expertise/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: social-route
+          uri: lb://social-service
+          predicates:
+            - Path=/api/v1/social/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: therapy-route
+          uri: lb://therapy-service
+          predicates:
+            - Path=/api/v1/therapy/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: payment-route
+          uri: lb://payment-service
+          predicates:
+            - Path=/api/v1/payments/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: echo-route
+          uri: lb://echo-service
+          predicates:
+            - Path=/api/v1/echo/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      initialInstanceInfoReplicationIntervalSeconds: 5
+      registryFetchIntervalSeconds: 5
+      instance:
+      leaseRenewalIntervalInSeconds: 5
+      leaseExpirationDurationInSeconds: 5
+  instance:
+    hostname: localhost
