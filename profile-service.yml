@@ -3,7 +3,7 @@ server.error.include-message: always
 
 custom:
   health:
-    status: DOWN
+    status: UP
     
 spring:
   datasource:
