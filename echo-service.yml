@@ -12,7 +12,6 @@ springdoc:
   swagger-ui:
     enabled: true
     path: /api/v1/echo/doc/swagger-ui.html
-
   packages-to-scan: com.digitalholics
   paths-to-match: /api/v1/echo/**
   
@@ -25,6 +24,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
   instance:
+    prefer-ip-address: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 management:
@@ -35,4 +35,3 @@ management:
     web:
       exposure:
         include: "health,refresh,customhealth,info"
-
