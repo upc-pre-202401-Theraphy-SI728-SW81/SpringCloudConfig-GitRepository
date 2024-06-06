@@ -4,12 +4,6 @@ server.error.include-message: always
 spring:
   cloud:
     gateway:
-       globalcors:
-          corsConfigurations:
-          '[/**]':
-          allowedOrigins: "*"
-          allowedMethods: "*"
-          allowedHeaders: "*"
       discovery:
         locator:
           enabled: true
