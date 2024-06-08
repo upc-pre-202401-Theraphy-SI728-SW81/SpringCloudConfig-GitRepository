@@ -85,4 +85,4 @@ eureka:
       leaseRenewalIntervalInSeconds: 5
       leaseExpirationDurationInSeconds: 5
   instance:
-    hostname: 54.90.154.71
+    hostname: 52.90.129.137
