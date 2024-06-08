@@ -56,6 +56,12 @@ spring:
             - Path=/api/v1/echo/**
           filters:
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: iot-data-route
+          uri: lb://iot-data-service
+          predicates:
+            - Path=/api/v1/iot-data/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
 management:
   endpoints:
     web:
