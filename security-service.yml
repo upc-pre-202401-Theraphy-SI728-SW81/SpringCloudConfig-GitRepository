@@ -9,7 +9,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/ms_theraphy_security?useSSL=false&serverTimeZone=UTC&useLegacyDatetimeCode=false
     username: root
-    password: Cristian021*
+    password: 12345678
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       initializationFailTimeout: 60000
