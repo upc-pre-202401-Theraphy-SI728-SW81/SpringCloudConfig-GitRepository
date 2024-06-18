@@ -1,5 +1,7 @@
-server.port: 8080
-server.error.include-message: always
+server:
+  port: 8080
+  error:
+    include-message: always
 
 spring:
   cloud:
@@ -62,6 +64,16 @@ spring:
             - Path=/api/v1/iot-data/**
           filters:
             - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200/"
+            allowedMethods:
+              - GET
+              - POST
+              - PATCH
+
 management:
   endpoints:
     web:
@@ -81,7 +93,7 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
       initialInstanceInfoReplicationIntervalSeconds: 5
       registryFetchIntervalSeconds: 5
-      instance:
+    instance:
       leaseRenewalIntervalInSeconds: 5
       leaseExpirationDurationInSeconds: 5
   instance:
