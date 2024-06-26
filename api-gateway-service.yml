@@ -69,7 +69,7 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins:
-              - "https://emergentes-bfec1.web.app/login"
+              - "https://emergentes-bfec1.web.app"
             allowedMethods:
               - GET
               - POST
